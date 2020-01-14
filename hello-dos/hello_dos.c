@@ -1,11 +1,12 @@
 #include <stdio.h>
 
 int main() {
-    printf("Hello, world! \n");
+    char *hello_msg = "Hello, DOS!\n\r$";
 
-    __asm {
-        xor ax,ax
-        mov cs,ax
+    _asm{
+        mov  ah, 09h
+        mov edx, hello_msg
+        int 21h
     }
 
     return 0;
