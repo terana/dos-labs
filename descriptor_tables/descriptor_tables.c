@@ -98,15 +98,6 @@ typedef union _SELECTOR {
     };
 } SELECTOR, *PSELECTOR;
 
-typedef struct _SYSINFO {
-    SELECTOR cs;
-    uint32 cr0;
-    DTR gdtr;
-    DTR idtr;
-    SELECTOR ldt;
-    SELECTOR tr;
-} SYSINFO, *PSYSINFO;
-
 /* 7-4 Vol. 3A Figure 7-2. 32-Bit Task-State Segment (TSS) */
 typedef struct _TSS {
     uint8 ptl;      /* Previous Task Link */
@@ -149,6 +140,15 @@ typedef struct _TSS {
     uint8 reserved12:7;
     uint8 iomba;    /* I/O Map Based address */
 } TSS, *PTSS;
+
+typedef struct _SYSINFO {
+    SELECTOR cs;
+    uint32 cr0;
+    DTR gdtr;
+    DTR idtr;
+    SELECTOR ldt;
+    SELECTOR tr;
+} SYSINFO, *PSYSINFO;
 
 void get_sysinfo(SYSINFO *sysinfo) {
     uint16 _cs = 0;

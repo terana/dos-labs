@@ -4,8 +4,8 @@ int main() {
     printf("Hello, world! \n");
 
     __asm {
-        xor ax,ax
-        mov cs,ax
+    xor ax, ax
+    mov cs, ax
     }
 
     return 0;
